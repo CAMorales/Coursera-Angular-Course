@@ -1,0 +1,26 @@
+<!-- <ul>
+    <li ng-repeat="item in $ctrl.items" ui-sref="items({categoryId: item.short_name})">
+        ({{ item.short_name }}) {{ item.name }}
+        <p>
+            {{ item.special_instructions }}
+        </p>
+    </li>
+</ul> -->
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered" >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Short Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="clickable" ng-repeat="item in $ctrl.items" ui-sref="items({categoryId: item.short_name})">
+                <td>{{ item.name }}</td>
+                <td>{{ item.short_name }}</td>
+                <td>{{ item.special_instructions }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
