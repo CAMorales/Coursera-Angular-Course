@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Sign up</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" novalidate name="signupForm">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="username" class="form-control input-sm"
+                                           placeholder="First Name" required ng-model="signupCtrl.user.firstName"
+                                           minlength="4">
+                                    <span class="error" ng-if="(signupForm.username.$error.minlength || signupForm.username.$error.required) && signupForm.username.$touched">
+                                        First name must be at least 4 characters long
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="last_name" class="form-control input-sm"
+                                           placeholder="Last Name" required ng-model="signupCtrl.user.lastName"
+                                           minlength="4">
+                                    <span class="error" ng-if="(signupForm.last_name.$error.minlength || signupForm.last_name.$error.required) && signupForm.last_name.$touched">
+                                        Last name must be at least 4 characters long
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control input-sm"
+                                   placeholder="Email Address" required ng-model="signupCtrl.user.email">
+                            <span class="error" ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+                                Must be a valid email address: handle@domain format
+                            </span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="phone_num" id="phone_num" class="form-control input-sm"
+                                           placeholder="Phone ###-###-####" required pattern="(\d{3}-\d{3}-\d{4})"
+                                           ng-model="signupCtrl.user.phone">
+                                    <span class="error" ng-if="signupForm.phone_num.$invalid && signupForm.phone_num.$touched">
+                                        Phone must be in the format ###-###-####.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="menu_number" id="menu_number" class="form-control input-sm"
+                                           placeholder="Favorite dish menu number"
+                                           ng-model="signupCtrl.user.favDish">
+                                    <span class="error" ng-if="signupCtrl.wrongDish">
+                                        No such menu number exists
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Submit" class="btn btn-info btn-block"
+                               ng-click="signupCtrl.signup()" > <!--ng-disabled="signupForm.$invalid"-->
+                        <div class="row"></div>
+                        <span class="success" ng-if="signupCtrl.user.saved">
+                                Your information has been saved
+                        </span>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
